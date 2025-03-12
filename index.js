@@ -195,3 +195,17 @@
     console.error("Error in script: ", error);
   }
 })();
+const retryInterval = 5000; // 5 seconds
+
+function startScript() {
+    try {
+        // Main script logic
+        console.log("The script is running...");
+        // Simulate connection or other operations that depend on the internet
+    } catch (error) {
+        console.error("Connection error. Retrying...");
+        setTimeout(startScript, retryInterval); // Retry after 5 seconds
+    }
+}
+
+startScript();
